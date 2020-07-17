@@ -4,13 +4,14 @@ import {
   fetchProjectsFailure,
   fetchProjectsSuccess,
 } from '.'
+import { API_KEY } from '@env'
 
 const fetchProjects = ({ platform, project }) => async dispatch => {
   try {
     dispatch(fetchProjectsRequest())
     const response = await axios.get(`https://libraries.io/api/search`, {
       params: {
-        api_key: 'c8999b8bbfb0726560fe54dd72323dac',
+        api_key: API_KEY,
         platforms: platform,
         q: project,
       },

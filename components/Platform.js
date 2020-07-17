@@ -159,13 +159,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const params = useParams()
-
   return {
     fetchProjects: project =>
       dispatch(
         fetchProjectsActionCreator({
-          platform: params.platform,
+          platform: ownProps.match.params.platform,
           project,
         })
       ),
